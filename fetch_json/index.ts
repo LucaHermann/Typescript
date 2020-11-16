@@ -20,8 +20,8 @@ axios.get(url).then((res) => {
 
 const logTodo = (id: number , title: string, completed: boolean) => {
   console.log(`
-  The id of this todo list item is: ${id},
-  the title is: ${title}, 
-  completed status: ${completed}.
+    The id of this todo list item is: ${id},
+    the title is: ${title}, 
+    completed status: ${completed}.
   `);
 }
