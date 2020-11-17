@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from 'axios';
 
 const url = 'https://pokeapi.co/api/v2/pokemon/charizard';
 
