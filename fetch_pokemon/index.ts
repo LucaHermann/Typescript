@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const url = 'https://pokeapi.co/api/v2/pokemon/charizard';
 
-interface IFetchCharizard {
+interface IFetchPokemon {
   id : number;
   name : string;
   base_experience : number;
@@ -73,7 +73,7 @@ interface IFetchCharizard {
 }
 
 axios.get(url).then((res) => {
-  const pokemon = res.data as IFetchCharizard;
+  const pokemon = res.data as IFetchPokemon;
 
   const id = pokemon.id;
   const name = pokemon.name;
@@ -88,7 +88,6 @@ axios.get(url).then((res) => {
   const base_special_attacks = pokemon.stats[3].base_stat;
   const base_special_defense = pokemon.stats[4].base_stat;
   const base_speed_stats = pokemon.stats[5].base_stat;
-
 
   LogPokemon(
     id, 
