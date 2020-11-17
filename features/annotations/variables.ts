@@ -11,6 +11,9 @@ export {};
 let apples: number = 5;
 apples = 10;
 // apples = '10'; error throw by ts = Type 'string' is not assignable to type 'number'.
+let pears = 5; // type inference work here bc the declaration is on one line.
+let annanas; // no type inference here bc the declaration is on two line. ts throw the error = Variable 'annanas' implicitly has an 'any' type, but a better type may be inferred from usage.
+annanas = 10;
 
 let name: string = 'Luca';
 name = 'Luquita';
