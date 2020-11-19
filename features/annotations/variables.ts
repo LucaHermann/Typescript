@@ -1,6 +1,6 @@
 /**
  * The export {} is a helper for avoid the error: 
- *    'Cannot redeclare block-scoped variable 'name'.ts(2451)
+ *    'Cannot redeclare block-scoped variable 'name'.
  *    lib.dom.d.ts(19484, 15): 'name' was also declared here.
  */
 export {}; 
@@ -93,5 +93,5 @@ let numberAboveZero: boolean | number = false; // the boolean | number means it'
 for (let i; i < numbers.length; i++) {
   if (numbers[i] > 0) {
     numberAboveZero = numbers[i];
-  }
+  } 
 }
