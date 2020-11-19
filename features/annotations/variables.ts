@@ -1,7 +1,7 @@
 /**
  * The export {} is a helper for avoid the error: 
- * 'Cannot redeclare block-scoped variable 'name'.ts(2451)
- * lib.dom.d.ts(19484, 15): 'name' was also declared here.'
+ *    'Cannot redeclare block-scoped variable 'name'.ts(2451)
+ *    lib.dom.d.ts(19484, 15): 'name' was also declared here.
  */
 export {}; 
 
@@ -10,18 +10,18 @@ export {};
  */
 let apples: number = 5;
 apples = 10;
-// apples = '10'; error throw by ts = Type 'string' is not assignable to type 'number'.
-let pears = 5; // type inference work here bc the declaration is on one line.
-let annanas; // no type inference here bc the declaration is on two line. ts throw the error = Variable 'annanas' implicitly has an 'any' type, but a better type may be inferred from usage.
+// apples = '10'; error throw by ts = Type 'string' is not assignable to type 'number'
+let pears = 5; // type inference work here bc the declaration is on one line
+let annanas; // no type inference here bc the declaration is on two line. ts throw the error = Variable 'annanas' implicitly has an 'any' type, but a better type may be inferred from usage
 annanas = 10;
 
 let name: string = 'Luca';
 name = 'Luquita';
-// name = true; error throw by ts = Type 'boolean' is not assignable to type 'string'.
+// name = true; error throw by ts = Type 'boolean' is not assignable to type 'string'
 
 let hasName: boolean = false;
 hasName = true;
-// hasName = 'true'; error throw by ts = Type 'string' is not assignable to type 'boolean'.
+// hasName = 'true'; error throw by ts = Type 'string' is not assignable to type 'boolean'
 
 let nothingMuch: null = null;
 let nothing: undefined = undefined;
@@ -52,8 +52,9 @@ let points: { x: number; y: number } = {
   x: 0,
   y: 0
 };
-// points.x = 'ten'; error throw by ts = Type 'string' is not assignable to type 'number'.
-// points.a = 10; error throw by ts = Property 'a' does not exist on type '{ x: number; y: number; }'.
+points.x;
+// points.x = 'ten'; error throw by ts = Type 'string' is not assignable to type 'number'
+// points.a = 10; error throw by ts = Property 'a' does not exist on type '{ x: number; y: number; }'
 
 /**
  * Functions
@@ -61,5 +62,36 @@ let points: { x: number; y: number } = {
 const logNumber: (i: number) => void = (i: number) => {
   console.log(i);
 }
-logNumber(10);
-// logNumber('a'); error throw by ts = Argument of type 'string' is not assignable to parameter of type 'number'.
+// logNumber('a'); error throw by ts = Argument of type 'string' is not assignable to parameter of type 'number'
+
+/* 
+ * When to use type annotations instead of inference
+ */
+
+// 1) Function that return 'any' type
+const json = '{"x": 1, "y": 2}';
+const coords: { x: number, y: number } = JSON.parse(json)
+console.log(coords);
+
+// 2) When we declare variable on one line 
+// and initalize it later
+
+let words = ['cat', 'dog', 'frog'];
+// let foundWord; this is bad beacause the type is 'any'
+let foundWord = false;
+
+for (let i = 0; i < words.length; i++) {
+  if (words[i] === 'frog') {
+    foundWord = true;
+  }
+}
+
+// 3) Variable whose type cannot be inferred correctly
+let numbers = [10, -1, 3444];
+let numberAboveZero: boolean | number = false; // the boolean | number means it's can be on or the other type
+
+for (let i; i < numbers.length; i++) {
+  if (numbers[i] > 0) {
+    numberAboveZero = numbers[i];
+  }
+}
