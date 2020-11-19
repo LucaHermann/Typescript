@@ -88,7 +88,7 @@ axios.get(url).then((res) => {
   const base_special_attacks = pokemon.stats[3].base_stat;
   const base_special_defense = pokemon.stats[4].base_stat;
   const base_speed_stats = pokemon.stats[5].base_stat;
-
+  
   LogPokemon(
     id, 
     name, 
