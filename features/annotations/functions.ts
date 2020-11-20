@@ -25,7 +25,7 @@ const logger = (message: string): void => {
   // return("OK"); ts throw the error Type 'string' is not assignable to type 'void'
 }
 
-// the type of return is never
+// the type of return is never bc the end of function never gonna be reached
 const throwError = (message: string): never => {
   throw new Error(message);
 }
