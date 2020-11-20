@@ -3,7 +3,7 @@
  *    'Cannot redeclare block-scoped variable 'name'.
  *    lib.dom.d.ts(19484, 15): 'name' was also declared here.
  */
-export {}; 
+export { };
 
 /**
  * Variables
@@ -42,7 +42,7 @@ let truths: boolean[] = [false, true, false];
 /* 
  * Classes
  */
-class Car {}
+class Car { }
 const ferrari: Car = new Car();
 
 /* 
@@ -93,5 +93,5 @@ let numberAboveZero: boolean | number = false; // the boolean | number means it'
 for (let i; i < numbers.length; i++) {
   if (numbers[i] > 0) {
     numberAboveZero = numbers[i];
-  } 
+  }
 }

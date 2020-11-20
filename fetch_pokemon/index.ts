@@ -3,9 +3,9 @@ import axios from 'axios';
 const url = 'https://pokeapi.co/api/v2/pokemon/charizard';
 
 interface IFetchPokemon {
-  id : number;
-  name : string;
-  base_experience : number;
+  id: number;
+  name: string;
+  base_experience: number;
   abilities: [
     {
       ability: {
@@ -88,14 +88,14 @@ axios.get(url).then((res) => {
   const base_special_attacks = pokemon.stats[3].base_stat;
   const base_special_defense = pokemon.stats[4].base_stat;
   const base_speed_stats = pokemon.stats[5].base_stat;
-  
+
   LogPokemon(
-    id, 
-    name, 
-    base_experience, 
-    primary_ability, 
-    second_ability, 
-    primary_type, 
+    id,
+    name,
+    base_experience,
+    primary_ability,
+    second_ability,
+    primary_type,
     second_type,
     base_hp_stats,
     base_attack_stats,
@@ -106,12 +106,12 @@ axios.get(url).then((res) => {
 }).catch(err => console.log(err));
 
 const LogPokemon = (
-  id: number, 
-  name: string, 
-  base_experience: number, 
-  primary_ability: string, 
-  second_ability: string, 
-  primary_type: string, 
+  id: number,
+  name: string,
+  base_experience: number,
+  primary_ability: string,
+  second_ability: string,
+  primary_type: string,
   second_type: string,
   base_hp_stats: number,
   base_attack_stats: number,
@@ -119,7 +119,7 @@ const LogPokemon = (
   base_special_attacks: number,
   base_special_defense: number,
   base_speed_stats: number,
-  ) => {
+) => {
   console.log(`
     ID: ${id}.
     Is the pokemon ${name},
