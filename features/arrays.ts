@@ -26,10 +26,10 @@ const moto = motoMakers[1];
 const myMoto = motoMakers.pop();
 
 // prevent incompatible values
-motoMakers.push(1001); // ts throw the error Argument of type 'number' is not assignable to parameter of type 'string'
+// motoMakers.push(1001); ts throw the error Argument of type 'number' is not assignable to parameter of type 'string'
 
 // Help with 'map'
-motoMakers.map((moto: string): string => {return moto.toUpperCase()});
+motoMakers.map((moto: string): string => { return moto.toUpperCase() });
 
 // Flexible types
 //inferrence
