@@ -14,7 +14,7 @@ class Vehicle {
 }
 
 class Moto extends Vehicle {
-  constructor(public wheels: number, color: string, years: number) {
+  constructor(public wheels: number, public model: string, color: string, years: number) {
     super('red', 2020);
   }
   private drive(): void {
@@ -31,8 +31,8 @@ class Moto extends Vehicle {
   }
 }
 
-const ducati = new Moto(2, 'red', 2020);
-console.log(`this vehicle have ${ducati.wheels} wheels, the ducati is ${ducati.color} and build in ${ducati.years}`);
+const ducati = new Moto(2, 'Multistada V4s Sport', 'red', 2020);
+console.log(`this vehicle have ${ducati.wheels} wheels, this ducati is a ${ducati.model} come in ${ducati.color} and build in ${ducati.years}`);
 ducati.startDrivingProcess();
 ducati.accelerate();
 ducati.wheeling();
