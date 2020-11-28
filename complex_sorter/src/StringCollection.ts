@@ -1,9 +1,25 @@
-export class StringCollection {
+import { ISortable } from './Sorter';
+
+export class StringCollection implements ISortable {
   constructor(public data: string) { }
 
-  compare(): void { }
+  get length(): number {
+    return this.data.length;
+  }
 
-  swap(): void { }
+  compare(leftIndex: number, rightIndex: number): boolean {
+    return (
+      this.data[leftIndex].toLowerCase() > this.data[rightIndex].toLowerCase()
+    );
+  }
 
-  // length(): number { }
+  swap(leftIndex: number, rightIndex: number): void {
+    const characters = this.data.split('');
+
+    const tmpLeftHand = characters[leftIndex];
+    characters[leftIndex] = characters[rightIndex];
+    characters[rightIndex] = tmpLeftHand;
+
+    this.data = characters.join('');
+  }
 }

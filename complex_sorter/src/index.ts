@@ -1,7 +1,15 @@
 import { Sorter } from './Sorter'
 import { NumbersCollection } from './NumbersCollection';
+import { StringCollection } from './StringCollection';
 
-const numbersCollection = new NumbersCollection([-10, 23, 44, 2, -1009, 2332, -88, 72]);
-const sorter = new Sorter(numbersCollection)
-sorter.sort();
+const stringCollection = new StringCollection('a e Z r s G s c T w p d');
+const numbersCollection = new NumbersCollection([-11, 23, 44, 2, -1009, 2332, -88, 72, 0]);
+
+const sorterNum = new Sorter(numbersCollection);
+const sorterString = new Sorter(stringCollection);
+
+sorterNum.sort();
+sorterString.sort();
+
 console.log(numbersCollection.data);
+console.log(stringCollection.data);
