@@ -1,7 +1,7 @@
 {
   "name": "complex_sorter",
   "version": "1.0.0",
-  "description": "complex sorter for strings, numbers and chained lists",
+  "description": "complex sorter for strings, array of numbers and linked lists",
   "main": "index.js",
   "scripts": {
     "start:build": "tsc -w",
