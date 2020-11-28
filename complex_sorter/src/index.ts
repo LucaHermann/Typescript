@@ -2,7 +2,7 @@ import { Sorter } from './Sorter'
 import { NumbersCollection } from './NumbersCollection';
 import { StringCollection } from './StringCollection';
 
-const stringCollection = new StringCollection('a e Z r s G s c T w p d');
+const stringCollection = new StringCollection('aeZrsGscTwpdFYwuIoBcD');
 const numbersCollection = new NumbersCollection([-11, 23, 44, 2, -1009, 2332, -88, 72, 0]);
 
 const sorterNum = new Sorter(numbersCollection);

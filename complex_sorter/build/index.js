@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Sorter_1 = require("./Sorter");
 const NumbersCollection_1 = require("./NumbersCollection");
 const StringCollection_1 = require("./StringCollection");
-const stringCollection = new StringCollection_1.StringCollection('a e Z r s G s c T w p d');
+const stringCollection = new StringCollection_1.StringCollection('aeZrsGscTwpdFYwuIoBcD');
 const numbersCollection = new NumbersCollection_1.NumbersCollection([-11, 23, 44, 2, -1009, 2332, -88, 72, 0]);
 const sorterNum = new Sorter_1.Sorter(numbersCollection);
 const sorterString = new Sorter_1.Sorter(stringCollection);
