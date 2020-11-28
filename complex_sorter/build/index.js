@@ -12,9 +12,9 @@ class Sorter {
         for (let i = 0; i < length; i++) {
             // second for loop itearate on the collection - the last item because we know he is the greater one so we don't resort it'.
             for (let j = 0; j < length - i - 1; j++) {
-                // if loop check if the left item is greater than the right item if yes we swap them.
                 // ONLY WORK IF COLLECTION IS number[].
                 if (this.collection instanceof Array) {
+                    // if loop check if the left item is greater than the right item if yes we swap them.
                     if (this.collection[j] > this.collection[j + 1]) {
                         const tmpLeftHand = this.collection[j];
                         this.collection[j] = this.collection[j + 1];
