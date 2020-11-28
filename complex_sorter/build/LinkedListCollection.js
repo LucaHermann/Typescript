@@ -69,7 +69,7 @@ class LinkedListCollection {
         }
         let node = this.head;
         while (node) {
-            console.log(node.data);
+            console.log('LinkedList:', node.data);
             node = node.next;
         }
     }

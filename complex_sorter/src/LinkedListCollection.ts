@@ -1,4 +1,4 @@
-export { }
+import { ISortable } from './Sorter'
 
 class Node {
   next: Node | null = null;
@@ -6,7 +6,7 @@ class Node {
   constructor(public data: number) { }
 }
 
-export class LinkedListCollection {
+export class LinkedListCollection implements ISortable {
   head: Node | null = null;
 
   add(data: number): void {
@@ -80,7 +80,7 @@ export class LinkedListCollection {
 
     let node: Node | null = this.head;
     while (node) {
-      console.log(node.data);
+      console.log('LinkedList:', node.data);
       node = node.next;
     }
   }
