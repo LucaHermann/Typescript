@@ -1,4 +1,4 @@
-interface IMappable {
+export interface IMappable {
   location: {
     lat: number,
     lng: number
@@ -17,7 +17,7 @@ export class CustomMap {
         lng: 0
       }
     });
-  }
+  };
 
   addMarker(mappable: IMappable): void {
     const marker = new google.maps.Marker({
@@ -35,6 +35,6 @@ export class CustomMap {
       });
 
       infoWindow.open(this.googleMap, marker);
-    })
-  }
+    });
+  };
 }

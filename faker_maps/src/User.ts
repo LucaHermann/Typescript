@@ -1,6 +1,8 @@
 import faker from 'faker';
 
-export class User {
+import { IMappable } from './CustomMap';
+
+export class User implements IMappable {
   firstName: string;
   lastName: string;
   jobTitle: string;
@@ -18,8 +20,8 @@ export class User {
     this.location = {
       lat: parseFloat(faker.address.latitude()),
       lng: parseFloat(faker.address.longitude())
-    }
-  }
+    };
+  };
 
   markerContent(): string {
     return ` 
@@ -28,6 +30,7 @@ export class User {
       <h3>Firstname: ${this.firstName},</h3>
       <h3>Lastname: ${this.lastName},</h3>
       <h3>Jobtitle: ${this.jobTitle},</h3>
-      <h3>Phonenumber: ${this.phoneNumber}.</h3>`
-  }
+      <h3>Phonenumber: ${this.phoneNumber}.</h3>
+    `
+  };
 }
