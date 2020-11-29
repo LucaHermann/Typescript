@@ -16,13 +16,10 @@ linkedListCollection.add(45);
 linkedListCollection.add(-200);
 linkedListCollection.add(23);
 
-const sorterNum = new Sorter(numbersCollection);
-const sorterString = new Sorter(stringCollection);
-const sortLinkedList = new Sorter(linkedListCollection);
 
-sorterNum.sort();
-sorterString.sort();
-sortLinkedList.sort();
+stringCollection.sort();
+numbersCollection.sort();
+linkedListCollection.sort();
 
 console.log('Numbers:', numbersCollection.data);
 console.log('Strings:', stringCollection.data);
