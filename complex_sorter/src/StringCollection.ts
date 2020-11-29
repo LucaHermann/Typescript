@@ -1,7 +1,9 @@
-import { ISortable } from './Sorter';
+import { ISortable, Sorter } from './Sorter';
 
-export class StringCollection implements ISortable {
-  constructor(public data: string) { }
+export class StringCollection extends Sorter implements ISortable {
+  constructor(public data: string) {
+    super();
+  }
 
   get length(): number {
     return this.data.length;
