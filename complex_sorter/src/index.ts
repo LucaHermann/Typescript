@@ -1,4 +1,3 @@
-import { Sorter } from './Sorter'
 import { NumbersCollection } from './NumbersCollection';
 import { StringCollection } from './StringCollection';
 import { LinkedListCollection } from './LinkedListCollection'
@@ -15,7 +14,6 @@ linkedListCollection.add(0);
 linkedListCollection.add(45);
 linkedListCollection.add(-200);
 linkedListCollection.add(23);
-
 
 stringCollection.sort();
 numbersCollection.sort();
