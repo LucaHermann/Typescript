@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CsvFileReader = void 0;
 const fs_1 = __importDefault(require("fs")); // Node std lib File System.
+const utils_1 = require("./utils");
 class CsvFileReader {
     constructor(filename) {
         this.filename = filename;
@@ -20,7 +21,17 @@ class CsvFileReader {
             .map((row) => {
             return row.split(',');
         })
-            .map(this.mapRow);
+            .map((row) => {
+            return [
+                utils_1.dateStringToDate(row[0]),
+                row[1],
+                row[2],
+                parseInt(row[3]),
+                parseInt(row[4]),
+                row[5],
+                row[6]
+            ];
+        });
     }
     ;
 }
