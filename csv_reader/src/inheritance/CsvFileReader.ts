@@ -20,5 +20,6 @@ export abstract class CsvFileReader<T> {
         }
       )
       .map(this.mapRow);
+    console.log(this.data);
   };
 };

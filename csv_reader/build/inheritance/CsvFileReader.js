@@ -21,6 +21,7 @@ class CsvFileReader {
             return row.split(',');
         })
             .map(this.mapRow);
+        console.log(this.data);
     }
     ;
 }
