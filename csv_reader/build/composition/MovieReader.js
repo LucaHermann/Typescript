@@ -1,10 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MovieReader = void 0;
+const CsvFileReader_1 = require("./CsvFileReader");
 class MovieReader {
     constructor(reader) {
         this.reader = reader;
         this.movies = [];
+    }
+    static fromCsv(fileName) {
+        return new MovieReader(new CsvFileReader_1.CsvFileReader(fileName));
     }
     load() {
         this.reader.read();

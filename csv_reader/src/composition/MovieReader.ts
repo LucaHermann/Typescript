@@ -1,6 +1,10 @@
 import { IDataReader } from '../interfaces';
 import { MovieData } from '../MovieData'
+import { CsvFileReader } from './CsvFileReader';
 export class MovieReader {
+  static fromCsv(fileName: string): MovieReader {
+    return new MovieReader(new CsvFileReader(fileName));
+  }
   movies: MovieData[] = [];
 
   constructor(public reader: IDataReader) { }
