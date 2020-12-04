@@ -19,13 +19,12 @@ const csvMatchReader = new CsvFileReader('football.csv');
 const matchReader = new MatchReaderComposition(csvMatchReader);
 matchReader.load();
 
-const csvMovieReader = new CsvFileReader('movie.csv');
+const csvMovieReader = new CsvFileReader('movies.csv');
 const movieReader = new MovieReaderComposition(csvMovieReader);
 movieReader.load();
 
-let manUnitedWins = 0;
-let manUnitedDraw = 0;
-
+let manUnitedWinsCount = 0;
+let manUnitedDrawCount = 0;
 let dramaMoviesCount = 0;
 let comedyMoviesCount = 0;
 
@@ -41,19 +40,19 @@ for (let movie of movieReader.movies) {
 //composition for loop
 for (let match of matchReader.matches) {
   if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
-    manUnitedWins++;
+    manUnitedWinsCount++;
   } else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
-    manUnitedWins++;
+    manUnitedWinsCount++;
   } else if (match[1] === 'Man United' && match[5] === MatchResult.Draw) {
-    manUnitedDraw++;
+    manUnitedDrawCount++;
   } else if (match[2] === 'Man United' && match[5] === MatchResult.Draw) {
-    manUnitedDraw++;
+    manUnitedDrawCount++;
   }
 }
 
 console.log(`
-  Man United won ${manUnitedWins} games this season.
-  Man United draw ${manUnitedDraw} games this season.
+  Man United won ${manUnitedWinsCount} games this season.
+  Man United draw ${manUnitedDrawCount} games this season.
 
   There is ${dramaMoviesCount} drama movies and ${comedyMoviesCount} comedy movies in this list
   `);

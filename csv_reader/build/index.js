@@ -15,11 +15,11 @@ readerMovie.read();
 const csvMatchReader = new CsvFileReader_1.CsvFileReader('football.csv');
 const matchReader = new MatchReader_2.MatchReader(csvMatchReader);
 matchReader.load();
-const csvMovieReader = new CsvFileReader_1.CsvFileReader('movie.csv');
+const csvMovieReader = new CsvFileReader_1.CsvFileReader('movies.csv');
 const movieReader = new MovieReader_2.MovieReader(csvMovieReader);
 movieReader.load();
-let manUnitedWins = 0;
-let manUnitedDraw = 0;
+let manUnitedWinsCount = 0;
+let manUnitedDrawCount = 0;
 let dramaMoviesCount = 0;
 let comedyMoviesCount = 0;
 // inheritance for loop
@@ -34,21 +34,21 @@ for (let movie of movieReader.movies) {
 //composition for loop
 for (let match of matchReader.matches) {
     if (match[1] === 'Man United' && match[5] === MatchResult_1.MatchResult.HomeWin) {
-        manUnitedWins++;
+        manUnitedWinsCount++;
     }
     else if (match[2] === 'Man United' && match[5] === MatchResult_1.MatchResult.AwayWin) {
-        manUnitedWins++;
+        manUnitedWinsCount++;
     }
     else if (match[1] === 'Man United' && match[5] === MatchResult_1.MatchResult.Draw) {
-        manUnitedDraw++;
+        manUnitedDrawCount++;
     }
     else if (match[2] === 'Man United' && match[5] === MatchResult_1.MatchResult.Draw) {
-        manUnitedDraw++;
+        manUnitedDrawCount++;
     }
 }
 console.log(`
-  Man United won ${manUnitedWins} games this season.
-  Man United draw ${manUnitedDraw} games this season.
+  Man United won ${manUnitedWinsCount} games this season.
+  Man United draw ${manUnitedDrawCount} games this season.
 
   There is ${dramaMoviesCount} drama movies and ${comedyMoviesCount} comedy movies in this list
   `);
