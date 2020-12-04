@@ -1,19 +1,27 @@
-import { MatchReader } from './inheritance/MatchReader';
-import { MovieReader } from './inheritance/MovieReader';
+import { MatchReader as MatchReaderInheritance } from './inheritance/MatchReader';
+import { MovieReader as MovieReaderInheritance } from './inheritance/MovieReader';
+
+import { MatchReader as MatchReaderComposition } from './composition/MatchReader';
+import { MovieReader as MovieReaderComposition } from './composition/MovieReader';
+
 import { MatchResult } from './MatchResult';
-// import { CsvFileReader } from './inheritance/CsvFileReader';
+import { CsvFileReader } from './composition/CsvFileReader';
 
 // Inheritance index
-const readerFoot = new MatchReader('football.csv');
-readerFoot.read()
+const readerFoot = new MatchReaderInheritance('football.csv');
+readerFoot.read();
 
-const readerMovie = new MovieReader('movies.csv');
+const readerMovie = new MovieReaderInheritance('movies.csv');
 readerMovie.read();
 
 // Composition index
-// const csvFileReader = new CsvFileReader('football.csv');
-// const matchReader = new MatchReader(csvFileReader);
-// matchReader.load();
+const csvMatchReader = new CsvFileReader('football.csv');
+const matchReader = new MatchReaderComposition(csvMatchReader);
+matchReader.load();
+
+const csvMovieReader = new CsvFileReader('movie.csv');
+const movieReader = new MovieReaderComposition(csvMovieReader);
+movieReader.load();
 
 let manUnitedWins = 0;
 let manUnitedDraw = 0;
@@ -22,7 +30,7 @@ let dramaMoviesCount = 0;
 let comedyMoviesCount = 0;
 
 // inheritance for loop
-for (let movie of readerMovie.data) {
+for (let movie of movieReader.movies) {
   if (movie[1] === 'Drama') {
     dramaMoviesCount++;
   } else if (movie[1] === 'Comedy') {
@@ -31,7 +39,7 @@ for (let movie of readerMovie.data) {
 }
 
 //composition for loop
-for (let match of readerFoot.data) {
+for (let match of matchReader.matches) {
   if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
     manUnitedWins++;
   } else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
