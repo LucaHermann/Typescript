@@ -9,6 +9,5 @@ const reportingMovies = Reporting.movieAnalysisAndReport();
 
 matchReader.load()
 moviesReader.load();
-
 reportingFoot.buildAndPrintReport(matchReader.matches);
 reportingMovies.buildAndPrintReport(moviesReader.movies);
