@@ -1,9 +1,7 @@
+import { MatchData } from '../MatchData';
 import { MatchResult } from '../MatchResult';
-import { IDataReader, dateStringToDate } from '../utils'
-
-// Custom Tuples for matching the row of a game with the propers types.
-type MatchData = [Date, string, string, number, number, MatchResult, string];
-
+import { dateStringToDate } from '../utils';
+import { IDataReader } from '../interfaces';
 export class MatchReader {
   matches: MatchData[] = [];
 

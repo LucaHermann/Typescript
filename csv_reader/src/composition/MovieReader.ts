@@ -1,7 +1,5 @@
-import { IDataReader } from '../utils';
-
-type MovieData = [string, string, string, number, number, number, string, number];
-
+import { IDataReader } from '../interfaces';
+import { MovieData } from '../MovieData'
 export class MovieReader {
   movies: MovieData[] = [];
 

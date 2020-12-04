@@ -1,6 +1,5 @@
 import { CsvFileReader } from './CsvFileReader';
-
-type MovieData = [string, string, string, number, number, number, string, number];
+import { MovieData } from '../MovieData';
 
 export class MovieReader extends CsvFileReader<MovieData> {
   mapRow(row: string[]): MovieData {
