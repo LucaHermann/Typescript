@@ -1,6 +1,5 @@
-import { MatchReader as MatchReaderInheritance } from './inheritance/MatchReader';
-import { MovieReader as MovieReaderInheritance } from './inheritance/MovieReader';
-
+// import { MatchReader as MatchReaderInheritance } from './inheritance/MatchReader';
+// import { MovieReader as MovieReaderInheritance } from './inheritance/MovieReader';
 import { MatchReader as MatchReaderComposition } from './composition/MatchReader';
 import { MovieReader as MovieReaderComposition } from './composition/MovieReader';
 
@@ -8,27 +7,25 @@ import { MatchResult } from './MatchResult';
 import { CsvFileReader } from './composition/CsvFileReader';
 
 // Inheritance index
-const readerFoot = new MatchReaderInheritance('football.csv');
-readerFoot.read();
-
-const readerMovie = new MovieReaderInheritance('movies.csv');
-readerMovie.read();
+// const readerFoot = new MatchReaderInheritance('football.csv');
+// readerFoot.read();
+// const readerMovie = new MovieReaderInheritance('movies.csv');
+// readerMovie.read();
 
 // Composition index
 const csvMatchReader = new CsvFileReader('football.csv');
-const matchReader = new MatchReaderComposition(csvMatchReader);
-matchReader.load();
-
 const csvMovieReader = new CsvFileReader('movies.csv');
 const movieReader = new MovieReaderComposition(csvMovieReader);
-movieReader.load();
+const matchReader = new MatchReaderComposition(csvMatchReader);
 
-let manUnitedWinsCount = 0;
-let manUnitedDrawCount = 0;
+let winsCount = 0;
+let drawCount = 0;
 let dramaMoviesCount = 0;
 let comedyMoviesCount = 0;
 
-// inheritance for loop
+matchReader.load();
+movieReader.load();
+
 for (let movie of movieReader.movies) {
   if (movie[1] === 'Drama') {
     dramaMoviesCount++;
@@ -37,22 +34,21 @@ for (let movie of movieReader.movies) {
   }
 }
 
-//composition for loop
 for (let match of matchReader.matches) {
   if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
-    manUnitedWinsCount++;
+    winsCount++;
   } else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
-    manUnitedWinsCount++;
+    winsCount++;
   } else if (match[1] === 'Man United' && match[5] === MatchResult.Draw) {
-    manUnitedDrawCount++;
+    drawCount++;
   } else if (match[2] === 'Man United' && match[5] === MatchResult.Draw) {
-    manUnitedDrawCount++;
+    drawCount++;
   }
 }
 
 console.log(`
-  Man United won ${manUnitedWinsCount} games this season.
-  Man United draw ${manUnitedDrawCount} games this season.
+  Man United won ${winsCount} games this season.
+  Man United draw ${drawCount} games this season.
 
   There is ${dramaMoviesCount} drama movies and ${comedyMoviesCount} comedy movies in this list
   `);
