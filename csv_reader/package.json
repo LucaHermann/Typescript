@@ -1,0 +1,19 @@
+{
+  "name": "csv_reader",
+  "version": "1.0.0",
+  "description": "classic csv reader with custom parsing and rendering",
+  "main": "index.js",
+  "scripts": {
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "start": "concurrently npm:start:*"
+  },
+  "keywords": [],
+  "author": "lhermann",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^14.14.10",
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  }
+}
